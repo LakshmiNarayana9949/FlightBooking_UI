@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { AuthService } from './services/auth.service';
+import { AirlineComponent } from './airline/airline.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InventoryComponent,
-    TicketComponent
+    TicketComponent,
+    AirlineComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
