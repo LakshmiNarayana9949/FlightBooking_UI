@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 import { Injectable } from '@angular/core';
+import { User } from '../models/User';
 
 @Injectable()
 export class AuthService {
@@ -15,10 +16,10 @@ export class AuthService {
         return this.http.post<any>(this._loginUrl, user)
     }
 
-    // registerUser(user: UserData) {
-    //     console.log(user);
-    //     return this.http.post<any>(this._registerUrl, user)
-    // }
+    registerUser(user: User) {
+        console.log(user);
+        return this.http.post<any>(this._registerUrl, user)
+    }
 
     logoutUser() {
         localStorage.removeItem('token')
