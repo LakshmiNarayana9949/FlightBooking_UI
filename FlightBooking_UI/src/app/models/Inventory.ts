@@ -1,9 +1,7 @@
-import { DatePipe } from "@angular/common"
-
 export class Inventory{
     InventoryId : number = 0   
     FlightNumber : string = ""
-    AirLineId : number = 0
+    AirLineName : string = ""
     FromPlace : string = ""
     ToPlace : string = ""
     StartDate : Date = new Date()
