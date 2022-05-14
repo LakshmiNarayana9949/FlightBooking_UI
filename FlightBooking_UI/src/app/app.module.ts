@@ -11,6 +11,7 @@ import { AuthService } from './services/auth.service';
 import { AirlineComponent } from './airline/airline.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { RegistrationComponent } from './registration/registration.component';
   ],
   providers: [AuthService,{
     provide:HTTP_INTERCEPTORS,
-    useClass:AuthService,
+    useClass:TokenInterceptorService,
     multi:true
   }],
   bootstrap: [AppComponent]
