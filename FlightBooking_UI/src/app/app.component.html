@@ -1,5 +1,5 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#" *ngIf="LoggedIn(true)">EventHub</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">EventHub</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
         <a class="nav-link" *ngIf="LoggedIn(true)" routerLink="/inventory">Inventories</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="LoggedIn(true)" routerLink="/ticket">Ticket</a>
+        <a class="nav-link" *ngIf="LoggedIn(true)" routerLink="/ticket">Tickets</a>
       </li>
     </ul>
     <ul class="navbar-nav">
@@ -21,25 +21,11 @@
         <a class="nav-link" *ngIf="LoggedIn(false)" routerLink="/register">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" style="cursor:pointer" *ngIf="LoggedIn(true)" (click)="LogOut()">Logout</a>
+        <a class="nav-link" style="cursor: pointer;" *ngIf="LoggedIn(true)" (click)="LogOut()">Logout</a>
       </li>
     </ul>
   </div>
-</nav> -->
-
-<div>
-    <a class="nav-link" *ngIf="LoggedIn(false)" routerLink="/login">Login</a>
-</div>
-<div>
-    <a class="nav-link" *ngIf="LoggedIn(false)" routerLink="/register">Register</a>
-</div>
-<div>
-  <a class="nav-link" *ngIf="LoggedIn(true)" routerLink="/inventory">Inventories</a>
-</div>
-<div>
-  <a class="nav-link" *ngIf="LoggedIn(true)" routerLink="/ticket">Ticket</a>
-</div>
-<a class="nav-link" *ngIf="LoggedIn(true)" (click)="LogOut()">Logout</a>
+</nav>
 
 <div class="container">
   <router-outlet></router-outlet>

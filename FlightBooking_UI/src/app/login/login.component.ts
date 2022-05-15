@@ -10,14 +10,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private _auth : AuthService, private _router : Router) { }
   loginModel : LoginModel = new LoginModel();
+  errorMessage : string = '';
 
   Login(){
-    this._auth.loginUser(this.loginModel).subscribe(res => {
-      debugger;
-        localStorage.setItem('token', res.token)
-        this._router.navigate([('/userdetails')])
+      this._auth.loginUser(this.loginModel).subscribe(res => {
+      localStorage.setItem('token', res.token)
+      this._router.navigate([('/userdetails')])
     },
-    err => console.log(err));
+      err => this.errorMessage = err.error.text
+    );
   }
 
   ngOnInit() {
