@@ -22,8 +22,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'inventory',
-    component: InventoryComponent
+    path: 'userdetails',
+    component: UserComponent
+  },
+  {
+    path: 'ticket',
+    component: TicketComponent
   },
   {
     path: 'ticket',

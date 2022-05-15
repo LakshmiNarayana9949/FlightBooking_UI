@@ -12,6 +12,7 @@ import { AirlineComponent } from './airline/airline.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     TicketComponent,
     AirlineComponent,
     UserComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

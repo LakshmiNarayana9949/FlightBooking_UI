@@ -1,8 +1,10 @@
 
 <div>
-  <input type="text" value="{{loginModel.Email}}">
+  <label>Email</label>
+  <input type="email" [(ngModel)]="loginModel.Email"/>
 </div>
 <div>
-  <input type="text" value="{{loginModel.Password}}">
+  <label>Password</label>
+  <input type="password" [(ngModel)]="loginModel.Password"/>
 </div>
-<button><span>Login</span></button>
+<button (click)="Login()">Login</button>

@@ -33,6 +33,13 @@
 <div>
     <a class="nav-link" *ngIf="LoggedIn(false)" routerLink="/register">Register</a>
 </div>
+<div>
+  <a class="nav-link" *ngIf="LoggedIn(true)" routerLink="/inventory">Inventories</a>
+</div>
+<div>
+  <a class="nav-link" *ngIf="LoggedIn(true)" routerLink="/ticket">Ticket</a>
+</div>
+<a class="nav-link" *ngIf="LoggedIn(true)" (click)="LogOut()">Logout</a>
 
 <div class="container">
   <router-outlet></router-outlet>
