@@ -8,13 +8,21 @@ import { AuthService } from '../services/auth.service';
 })
 export class UserComponent implements OnInit {
 
-  user : User = new User();
-  constructor(private _auth : AuthService, private _route : Router) { }
-
+  constructor(private _auth : AuthService, private _route : Router) {}
+  userLoginMessage : string = ''
   
+  getUserDetails(){
+    this._auth.getUserDetails().subscribe(res => {
+      this.userLoginMessage = 'Welcome ' + res.firstName
+      localStorage.setItem('usertype', res.userType)
+      localStorage.setItem('firstname', res.firstName)
+      
+      
+    }, err => console.log(err));
+  }  
 
   ngOnInit(): void {
-    this._auth.getUserDetails();
+    this.getUserDetails();
   }
 
 }

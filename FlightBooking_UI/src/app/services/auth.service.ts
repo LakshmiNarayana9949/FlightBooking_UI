@@ -10,7 +10,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 export class AuthService {
     private _registerUrl = "https://localhost:44361/api/Register/RegisterNewUser";
     private _loginUrl = "https://localhost:44357/api/Authentication/Authenticate";
-    private _userUrl = "https://localhost:44315/api/UserDetails/GetUserDetailsFromEmail"
+    private _userUrl = "https://localhost:44315/api/UserDetails/GetUserDetails"
 
     constructor(private http: HttpClient, private _router: Router) {
 
@@ -31,14 +31,9 @@ export class AuthService {
     }
 
     getUserDetails(){ 
-        debugger;
-        let token = this.getToken();
-        let decodedToken = this.getTokenClaims();
-        let email = decodedToken.unique_name; 
-        
-        let headers = new HttpHeaders().set('Authorization', 'Bearer '+ token)
-                                        .set('Content-Type', 'application/json')
-        return this.http.get(this._userUrl + "?email=" + email, {headers:headers})
+        let userId = localStorage.getItem('userid');
+        let token = localStorage.getItem('token')
+        return this.http.get<any>(this._userUrl + "/" + userId)
     }
 
     getTokenClaims(){

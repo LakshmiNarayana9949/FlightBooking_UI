@@ -25,5 +25,14 @@ export class AppComponent {
       return !this._authService.loggedIn();
     }
   }
-  
+  IsAdmin(){
+    debugger;
+    let userType = localStorage.getItem('usertype')
+    if(userType == '2'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }  
 }

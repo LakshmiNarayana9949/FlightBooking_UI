@@ -3,11 +3,12 @@ import { Ticket } from '../models/Ticket';
 
 @Component({
   selector: 'app-ticket',
-  templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.styl']
+  templateUrl: './ticket.component.html'
 })
-export class TicketComponent implements OnInit {
 
+
+export class TicketComponent implements OnInit {
+  userTicketBookMessage = 'Welcome ' + localStorage.getItem('firstname') + ', ' + 'you can book you tickets here.'
   constructor() { }
 
   ngOnInit() {

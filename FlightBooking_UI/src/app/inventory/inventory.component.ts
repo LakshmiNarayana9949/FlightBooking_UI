@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class InventoryComponent implements OnInit {
   
-
+  adminInventoryCreateMessage : string = 'Hey Admin, wecome. Do you want to schedule a flight...?'
   constructor() { }
 
   ngOnInit() {

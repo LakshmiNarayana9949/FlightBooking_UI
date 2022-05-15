@@ -13,8 +13,12 @@ export class LoginComponent implements OnInit {
   errorMessage : string = '';
 
   Login(){
+    debugger;
       this._auth.loginUser(this.loginModel).subscribe(res => {
+        console.log(res);
       localStorage.setItem('token', res.token)
+      localStorage.setItem('userid', res.userId)
+      localStorage.setItem('usertype', res.userType)
       this._router.navigate([('/userdetails')])
     },
       err => this.errorMessage = err.error.text

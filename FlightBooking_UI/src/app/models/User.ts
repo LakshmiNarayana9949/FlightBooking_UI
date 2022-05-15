@@ -1,7 +1,7 @@
 export class User{
     UserID : number = 0
     UserType : number = 0
-    irstName : string = ""
+    FirstName : string = ""
     LastName : string = ""
     Mobile : string = ""
     Address : string = ""  
