@@ -1,9 +1,9 @@
 export class AirLine{
-    AirlineId : number = 0
-    LogoPath : string = ""
-    Name : string = ""
-    Address : string = ""  
-    ContactNumber : number = 0 
-    CreatedBy : number = 0   
-    CreatedOn : Date = new Date()  
+    airlineId : number = 0
+    logoPath : string = ""
+    name : string = ""
+    address : string = ""  
+    contactNumber : string = ""
+    createdBy : number = 0   
+    createdOn : Date = new Date()  
 }

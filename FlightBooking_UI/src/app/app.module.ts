@@ -30,7 +30,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService,UserComponent,LoginComponent,InventoryComponent,{
+  providers: [AuthService,UserComponent,LoginComponent,InventoryComponent,AirlineComponent,{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true

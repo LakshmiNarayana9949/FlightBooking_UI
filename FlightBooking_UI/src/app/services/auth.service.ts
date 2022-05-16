@@ -6,6 +6,8 @@ import { LoginModel } from '../models/LoginModel';
 import { User } from '../models/User';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { Inventory } from '../models/Inventory';
+import { AirLine } from '../models/AirLine';
+import { AirlineComponent } from '../airline/airline.component';
 
 @Injectable()
 export class AuthService {
@@ -14,6 +16,8 @@ export class AuthService {
     private _userUrl = "https://localhost:44315/api/UserDetails/GetUserDetails";
     private _inventoryUrl = "https://localhost:44349/api/Inventory/AddNewInventory";
     private _allInventoriesUrl = "https://localhost:44349/api/Inventory/GetAllInventories"
+    private _allAirLinesUrl = "https://localhost:44349/api/AirLine/GetAllAirlines";
+    private _airLineUrl = "https://localhost:44349/api/AirLine/AddNewAirLine";
 
     constructor(private http: HttpClient, private _router: Router) {
 
@@ -53,6 +57,15 @@ export class AuthService {
 
     showAllInventories(){
         return this.http.get<any>(this._allInventoriesUrl)
+    }
+
+    getAllAirLines(){
+        return this.http.get<any>(this._allAirLinesUrl)
+    }
+
+    addNewAirLine(airLine : AirLine){
+        debugger;
+        return this.http.post<any>(this._airLineUrl, airLine)
     }
     
 }
