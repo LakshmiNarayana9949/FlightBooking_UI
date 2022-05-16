@@ -1,3 +1,88 @@
 <div>
-  {{adminInventoryCreateMessage}}
+  <button type="button" class="btn btn-success"> Add an Inventory </button>
+</div>
+
+<div class="container">
+  <div class="row" *ngFor="let inventory of inventories">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3"> From Place </div>
+        <div class="col-md-3"> {{inventory.FromPlace}} </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <div class="py-5">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card rounded-0">
+                <div class="card-body">
+                    <div class="col-md-12">
+                        <div class="col-md-6" style="width: 50%;">
+                          <label>Flight Number</label>
+                          <input type="text" class="form-control" [(ngModel)]="inventoryModel.FlightNumber"/>
+                        </div>
+                        <div class="col-md-6" style="width: 50%;">
+                          <label>From Place</label>
+                          <input type="text" class="form-control" [(ngModel)]="inventoryModel.FromPlace"/>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group">
+                          <label>To Place</label>
+                          <input type="text" class="form-control" [(ngModel)]="inventoryModel.ToPlace"/>
+                        </div>
+                        <div class="form-group">
+                          <label>Start Date</label>
+                          <input type="date" class="form-control" [(ngModel)]="inventoryModel.StartDate"/>
+                        </div>
+                        <div class="form-group">
+                          <label>End Date</label>
+                          <input type="date" class="form-control" [(ngModel)]="inventoryModel.EndDate"/>
+                        </div>
+                        <div class="form-group">
+                          <label >Schedule Type</label>
+                          <select [(ngModel)] = "inventoryModel.ScheduledDays">
+                            <option [value]="1"> Daily</option>
+                            <option [value]="2"> Week Days</option>
+                            <option [value]="3"> Weekends</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label>Instrument</label>
+                          <input class="form-control" [(ngModel)]="inventoryModel.Instrument">
+                        </div>
+                        <div class="form-group">
+                          <label>Business Class Seats</label>
+                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.BClassCount">
+                        </div>
+                        <div class="form-group">
+                          <label>Non-Business Class Seats</label>
+                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.NBClassCount">
+                        </div>
+                        <div class="form-group">
+                          <label>Ticket Cost</label>
+                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.TicketCost">
+                        </div>
+                        <div class="form-group">
+                          <label>Rows </label>
+                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.Rows">
+                        </div>
+                        <div class="form-group">
+                          <label>Meal </label>
+                          <select [(ngModel)]="inventoryModel.MealType">
+                            <option [value]="1">Veg</option>
+                            <option [value]="2">Non-Veg</option>
+                          </select>                          
+                        </div>
+                        <button type="submit" (click)="AddNewInventory()" class="btn btn-success float-right">Add Inventory</button>                        
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
 </div>

@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
   RegisterNewUser(){
     console.log(this.registerUserModel);
     this._auth.registerUser(this.registerUserModel).subscribe(res => this.successMessage = res);
-    this._router.navigate(['/register']);
+    this._router.navigate(['/login']);
   }
 
   ngOnInit(): void {

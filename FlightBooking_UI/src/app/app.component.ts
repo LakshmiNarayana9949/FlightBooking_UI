@@ -26,7 +26,6 @@ export class AppComponent {
     }
   }
   IsAdmin(){
-    debugger;
     let userType = localStorage.getItem('usertype')
     if(userType == '2'){
       return true;

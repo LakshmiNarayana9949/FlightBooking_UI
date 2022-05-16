@@ -5,12 +5,15 @@ import { RegisterUser } from '../models/RegisterUser';
 import { LoginModel } from '../models/LoginModel';
 import { User } from '../models/User';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { Inventory } from '../models/Inventory';
 
 @Injectable()
 export class AuthService {
     private _registerUrl = "https://localhost:44361/api/Register/RegisterNewUser";
     private _loginUrl = "https://localhost:44357/api/Authentication/Authenticate";
-    private _userUrl = "https://localhost:44315/api/UserDetails/GetUserDetails"
+    private _userUrl = "https://localhost:44315/api/UserDetails/GetUserDetails";
+    private _inventoryUrl = "https://localhost:44349/api/Inventory/AddNewInventory";
+    private _allInventoriesUrl = "https://localhost:44349/api/Inventory/GetAllInventories"
 
     constructor(private http: HttpClient, private _router: Router) {
 
@@ -25,6 +28,14 @@ export class AuthService {
         return this.http.post(this._registerUrl, registerUser, {responseType : 'text'})
     }
 
+    loggedIn() {
+        return !!localStorage.getItem('token')
+    }
+
+    getToken() {
+        return localStorage.getItem('token')
+    }
+
     logoutUser() {
         localStorage.removeItem('token')
         this._router.navigate(['/login'])
@@ -36,25 +47,12 @@ export class AuthService {
         return this.http.get<any>(this._userUrl + "/" + userId)
     }
 
-    getTokenClaims(){
-        let token = localStorage.getItem('token');
-        if(token != null){
-            let decodedJWT = JSON.parse(window.atob(token.split('.')[1]));
-            return decodedJWT;
-        }
-        else{
-            return null;
-        }
+    addNewInventory(inventory : Inventory){
+        return this.http.post<any>(this._inventoryUrl, inventory)
     }
 
-    getUserId(){
-        return localStorage.getItem('userId')
+    showAllInventories(){
+        return this.http.get<any>(this._allInventoriesUrl)
     }
-
-    getToken() {
-        return localStorage.getItem('token')
-    }
-    loggedIn() {
-        return !!localStorage.getItem('token')
-    }
+    
 }
