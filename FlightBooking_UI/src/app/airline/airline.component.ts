@@ -32,7 +32,7 @@ export class AirlineComponent implements OnInit {
 
   AddNewAirLine(){
     this._auth.addNewAirLine(this.airLine).subscribe(res => {
-
+      this._route.navigate(['/airline'])
     },
     err => {
 

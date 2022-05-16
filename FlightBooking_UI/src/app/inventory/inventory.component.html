@@ -1,102 +1,105 @@
-<div>
-  <span style="color: blue;">{{inventoryMsg}}</span>
-</div>
-
-<table border="1">
-  <tr style="background-color: gray;">
-    <td>AirLine</td>
-    <td>Flight Number</td>
-    <td>From Place</td>
-    <td>To Place</td>
-    <td>Cost</td>
-  </tr>
-  <tr *ngFor="let inventor of inventories" style="background-color: indianred;">
-    <td>{{inventor.airLineName}}</td>
-    <td>{{inventor.flightNumber}}</td>
-    <td>{{inventor.fromPlace}}</td>
-    <td>{{inventor.toPlace}}</td>
-    <td>{{inventor.ticketCost}}</td>
-  </tr>
-</table>
-
-
-<div>
-  <div class="py-5">
-    <div class="row">
-        <div class="col-md-12 mx-auto">
-            <div class="card rounded-0">
-                <div class="card-body">
-                    <div class="col-md-12">
-                        <div class="col-md-6" style="width: 50%;">
-                          <label>Air Line</label>
-                          <select [(ngModel)]="inventoryModel.airLineId">
-                            <option *ngFor="let airLine of airLines; let i = index;" [value]="airLines[i].airlineId">
-                              {{airLines[i].name}}
-                            </option>
-                          </select>
-                        </div>
-                        <div class="col-md-6" style="width: 50%;">
-                          <label>Flight Number</label>
-                          <input type="text" class="form-control" [(ngModel)]="inventoryModel.flightNumber"/>
-                        </div>
-                        <div class="col-md-6" style="width: 50%;">
-                          <label>From Place</label>
-                          <input type="text" class="form-control" [(ngModel)]="inventoryModel.fromPlace"/>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="form-group">
-                          <label>To Place</label>
-                          <input type="text" class="form-control" [(ngModel)]="inventoryModel.toPlace"/>
-                        </div>
-                        <div class="form-group">
-                          <label>Start Date</label>
-                          <input type="date" class="form-control" [(ngModel)]="inventoryModel.startDate"/>
-                        </div>
-                        <div class="form-group">
-                          <label>End Date</label>
-                          <input type="date" class="form-control" [(ngModel)]="inventoryModel.endDate"/>
-                        </div>
-                        <div class="form-group">
-                          <label >Schedule Type</label>
-                          <select [(ngModel)] = "inventoryModel.scheduledDays">
-                            <option [value]="1"> Daily</option>
-                            <option [value]="2"> Week Days</option>
-                            <option [value]="3"> Weekends</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Instrument</label>
-                          <input class="form-control" [(ngModel)]="inventoryModel.instrument">
-                        </div>
-                        <div class="form-group">
-                          <label>Business Class Seats</label>
-                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.bClassCount">
-                        </div>
-                        <div class="form-group">
-                          <label>Non-Business Class Seats</label>
-                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.nBClassCount">
-                        </div>
-                        <div class="form-group">
-                          <label>Ticket Cost</label>
-                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.ticketCost">
-                        </div>
-                        <div class="form-group">
-                          <label>Rows </label>
-                          <input type="number" class="form-control" [(ngModel)]="inventoryModel.rows">
-                        </div>
-                        <div class="form-group">
-                          <label>Meal </label>
-                          <select [(ngModel)]="inventoryModel.mealType">
-                            <option [value]="1">Veg</option>
-                            <option [value]="2">Non-Veg</option>
-                          </select>                          
-                        </div>
-                        <button type="submit" (click)="AddNewInventory()" class="btn btn-success float-right">Add Inventory</button>                        
-                      </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="background-color: lightblue; height: 1000px;">
+  <div>
+    <span style="color: blue; margin-left: 15%">{{inventoryMsg}}</span>
   </div>
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 2%;"></td>
+      <td style="width: 50%; vertical-align: top;">
+        <table border="1" style="width: 100%;">
+          <tr style="background-color: gray; height: 40px;text-align: center;border: 1px;">
+            <td>AirLine</td>
+            <td>Flight Number</td>
+            <td>From Place</td>
+            <td>To Place</td>
+            <td>Cost</td>
+          </tr>
+          <tr *ngFor="let inventor of inventories" style="background-color: indianred;height: 40px;text-align: center;border: 1px;">
+            <td>{{inventor.airLineName}}</td>
+            <td>{{inventor.flightNumber}}</td>
+            <td>{{inventor.fromPlace}}</td>
+            <td>{{inventor.toPlace}}</td>
+            <td>{{inventor.ticketCost}}</td>
+          </tr>
+        </table>
+      </td>
+      <td style="width: 6%;"></td>
+      <td style="width: 40%;">
+        <div class="card rounded-0">
+          <div class="Card-header">
+            <h3 class="mb-0" style="text-align: center;">Add new Inventory</h3>
+          </div>
+          <div class="card-body">
+              <div class="form">
+                  <div class="form-group">
+                    <label>Air Line</label>
+                    <select [(ngModel)]="inventoryModel.airLineId">
+                      <option *ngFor="let airLine of airLines; let i = index;" [value]="airLines[i].airlineId">
+                        {{airLines[i].name}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Flight Number</label>
+                    <input type="text" class="form-control" [(ngModel)]="inventoryModel.flightNumber"/>
+                  </div>
+                  <div class="form-group">
+                    <label>From Place</label>
+                    <input type="text" class="form-control" [(ngModel)]="inventoryModel.fromPlace"/>
+                  </div>
+                  <div class="form-group">
+                    <label>To Place</label>
+                    <input type="text" class="form-control" [(ngModel)]="inventoryModel.toPlace"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Start Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="inventoryModel.startDate"/>
+                  </div>
+                  <div class="form-group">
+                    <label>End Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="inventoryModel.endDate"/>
+                  </div>
+                  <div class="form-group">
+                    <label >Schedule Type</label>
+                    <select [(ngModel)] = "inventoryModel.scheduledDays">
+                      <option [value]="1"> Daily</option>
+                      <option [value]="2"> Week Days</option>
+                      <option [value]="3"> Weekends</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Instrument</label>
+                    <input class="form-control" [(ngModel)]="inventoryModel.instrument">
+                  </div>
+                  <div class="form-group">
+                    <label>Business Class Seats</label>
+                    <input type="number" class="form-control" [(ngModel)]="inventoryModel.bClassCount">
+                  </div>
+                  <div class="form-group">
+                    <label>Non-Business Class Seats</label>
+                    <input type="number" class="form-control" [(ngModel)]="inventoryModel.nBClassCount">
+                  </div>
+                  <div class="form-group">
+                    <label>Ticket Cost</label>
+                    <input type="number" class="form-control" [(ngModel)]="inventoryModel.ticketCost">
+                  </div>
+                  <div class="form-group">
+                    <label>Rows </label>
+                    <input type="number" class="form-control" [(ngModel)]="inventoryModel.rows">
+                  </div>
+                  <div class="form-group">
+                    <label>Meal </label>
+                    <select [(ngModel)]="inventoryModel.mealType">
+                      <option [value]="1">Veg</option>
+                      <option [value]="2">Non-Veg</option>
+                    </select>                          
+                  </div>
+                  <button type="submit" (click)="AddNewInventory()" class="btn btn-success float-right">Add Inventory</button>                        
+                </div>
+          </div>
+        </div>
+      </td>
+      <td style="width: 2%;"></td>
+    </tr>
+  </table>
 </div>

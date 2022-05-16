@@ -1,44 +1,50 @@
-<div>
-  <span style="color: blue;">{{airLineMsg}}</span>
-</div>
-<table border="1">
-  <tr style="background-color: gray;">
-    <td>AirLine Name</td>
-    <td>Address</td>
-    <td>Contact Number</td>
-  </tr>
-  <tr *ngFor="let airLine of airLines" style="background-color: indianred;">
-    <td>{{airLine.name}}</td>
-    <td>{{airLine.address}}</td>
-    <td>{{airLine.contactNumber}}</td>
-  </tr>
-</table>
-
-<div class="py-5">
-  <div class="row">
-      <div class="col-md-6 mx-auto">
-          <div class="card rounded-0">
-              <div class="Card-header">
-                  <h3 class="mb-0">Add new AirLine</h3>
-              </div>
-              <div class="card-body">
-                  <div class="form">
-                      <div class="form-group">
-                        <label for="FirstName">AirLine Name</label>
-                        <input type="text" class="form-control" [(ngModel)]="airLine.name"/>
-                      </div>
-                      <div class="form-group">
-                        <label for="LastName">Address</label>
-                        <input type="text" class="form-control" [(ngModel)]="airLine.address"/>
-                      </div>
-                      <div class="form-group">
-                        <label for="Mobile">Mobile</label>
-                        <input type="text" class="form-control" [(ngModel)]="airLine.contactNumber"/>
-                      </div>                      
-                      <button type="submit" (click)="AddNewAirLine()" class="btn btn-success float-right">Add</button>
-                    </div>
-              </div>
-          </div>
-      </div>
+<div style="background-color: lightblue; height: 1000px;">
+  <div>
+    <span style="color: blue; margin-left: 15%;">{{airLineMsg}}</span>
   </div>
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 2%;"></td>
+      <td style="width: 50%;">
+        <table border="1" style="width: 100%;">
+          <tr style="background-color: gray;height: 40px;text-align: center;border: 1px;">
+            <td>AirLine Name</td>
+            <td>Address</td>
+            <td>Contact Number</td>
+          </tr>
+          <tr *ngFor="let airLine of airLines" style="background-color: indianred;height: 40px;text-align: center;border: 1px;">
+            <td>{{airLine.name}}</td>
+            <td>{{airLine.address}}</td>
+            <td>{{airLine.contactNumber}}</td>
+          </tr>
+        </table>
+      </td>
+      <td style="width: 6%;"></td>
+      <td style="width: 40%;">
+        <div class="card rounded-0">
+          <div class="Card-header">
+              <h3 class="mb-0" style="text-align: center;">Add new AirLine</h3>
+          </div>
+          <div class="card-body">
+              <div class="form">
+                  <div class="form-group">
+                    <label for="FirstName">AirLine Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="airLine.name"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="LastName">Address</label>
+                    <input type="text" class="form-control" [(ngModel)]="airLine.address"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="Mobile">Mobile</label>
+                    <input type="text" class="form-control" [(ngModel)]="airLine.contactNumber"/>
+                  </div>                      
+                  <button type="submit" (click)="AddNewAirLine()" class="btn btn-success">Add</button>
+                </div>
+            </div>
+        </div>
+      </td>
+      <td style="width: 2%;"></td>
+    </tr>
+  </table>
 </div>
