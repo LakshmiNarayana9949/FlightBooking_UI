@@ -11,6 +11,7 @@ export class AirlineComponent implements OnInit {
   airLine : AirLine = new AirLine()
   airLines : Array<AirLine> = new Array<AirLine>()
   airLineMsg : string = 'Hello Admin, here are your Air Lines'
+  successMsg : string = ''
   constructor(private _auth : AuthService, private _route : Router) { }
 
   ngOnInit(): void {
@@ -31,12 +32,21 @@ export class AirlineComponent implements OnInit {
   }
 
   AddNewAirLine(){
-    this._auth.addNewAirLine(this.airLine).subscribe(res => {
-      this._route.navigate(['/airline'])
+    this.airLine.createdBy = Number(localStorage.getItem('userid'))
+    this.airLine.modifiedBy = Number(localStorage.getItem('userid'))
+    this._auth.addNewAirLine(this.airLine).subscribe(res => {      
+      this.airLine = new AirLine()
+      this.GetAllAirLines()
     },
     err => {
-
+      this.successMsg = err.error.text;
+      this.airLine = new AirLine()
+      this.GetAllAirLines()
     })
+  }
+
+  hasError(validator : string, controlname : string): boolean{
+    return this.airLine.formAirLineGroup.controls[controlname].hasError(validator);
   }
 
 }
