@@ -8,6 +8,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { Inventory } from '../models/Inventory';
 import { AirLine } from '../models/AirLine';
 import { AirlineComponent } from '../airline/airline.component';
+import { Head } from 'rxjs';
 
 @Injectable()
 export class AuthService {
@@ -15,9 +16,12 @@ export class AuthService {
     private _loginUrl = "https://localhost:44357/api/Authentication/Authenticate";
     private _userUrl = "https://localhost:44315/api/UserDetails/GetUserDetails";
     private _inventoryUrl = "https://localhost:44349/api/Inventory/AddNewInventory";
-    private _allInventoriesUrl = "https://localhost:44349/api/Inventory/GetAllInventories"
+    private _allInventoriesUrl = "https://localhost:44349/api/Inventory/GetAllInventories";
+    private _allInventoriesWithSearchUrl = "https://localhost:44349/api/Inventory/GetAllInventoriesWithSearch";
+    private _oneInventoryUrl = "https://localhost:44349/api/Inventory/GetInventory";
     private _allAirLinesUrl = "https://localhost:44349/api/AirLine/GetAllAirlines";
     private _airLineUrl = "https://localhost:44349/api/AirLine/AddNewAirLine";
+    
 
     constructor(private http: HttpClient, private _router: Router) {
 
@@ -59,12 +63,19 @@ export class AuthService {
         return this.http.get<any>(this._allInventoriesUrl)
     }
 
+    showAllInventoriesWithSearch(fromplace : string, toplace : string, startdate : Date){
+        return this.http.post<any>(this._allInventoriesWithSearchUrl + "?fromDate=" + startdate + "&fromPlace=" + fromplace + "&toPlace=" + toplace, '')
+    }
+
+    getInventory(inventoryId : number){
+        return this.http.get<any>(this._oneInventoryUrl + "/" + inventoryId)
+    }
+
     getAllAirLines(){
         return this.http.get<any>(this._allAirLinesUrl)
     }
 
     addNewAirLine(airLine : AirLine){
-        debugger;
         return this.http.post<any>(this._airLineUrl, airLine)
     }
     

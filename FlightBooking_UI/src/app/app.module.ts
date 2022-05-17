@@ -22,7 +22,7 @@ import { LoginComponent } from './login/login.component';
     AirlineComponent,
     UserComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService,UserComponent,LoginComponent,InventoryComponent,AirlineComponent,{
+  providers: [AuthService,UserComponent,LoginComponent,InventoryComponent,AirlineComponent,TicketComponent,{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true

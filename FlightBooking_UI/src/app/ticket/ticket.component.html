@@ -1,3 +1,48 @@
 <div>
   {{userTicketBookMessage}}
 </div>
+<table style="width: 100%;">
+  <tr style="width: 100%;">
+    <td style="width: 80%;">
+      <table border="1" style="width: 100%;">
+        <tr style="width: 100%;background-color: gray; height: 40px;text-align: center;border: 1px;">
+          <td style="width: 25%;">From</td>
+          <td style="width: 25%;">To</td>
+          <td style="width: 25%;">Start Date</td>
+        </tr>
+        <tr style="width: 100%;background-color: indianred;height: 40px;text-align: center;border: 1px;">
+          <td style="width: 25%;"><input type="text" name="fromplace" [(ngModel)]="fromplace"></td>
+          <td style="width: 25%;"><input type="text" name="toplace" [(ngModel)]="toplace"></td>
+          <td style="width: 25%;"><input type="date" name="startdate" [(ngModel)]="startdate"></td>
+        </tr>
+      </table> 
+    </td>
+    <td style="width: 5%;"></td>
+    <td style="width: 15%;">
+      <button class="btn btn-success float-right" (click)="ShowFlights()">Find Flights</button>
+    </td>
+  </tr> 
+</table>   
+
+<table style="height: 30px;"></table>
+
+<table border="1" style="width: 100%;">
+  <tr *ngIf="isFlightsAvailable()" style="background-color: gray; height: 40px;text-align: center;border: 1px;">
+    <td>AirLine</td>
+    <td>Flight Number</td>
+    <td>From Place</td>
+    <td>To Place</td>
+    <td>Cost</td>
+    <td style="background-color: white;"></td>
+  </tr>
+  <tr *ngFor="let inventor of inventories" style="background-color: indianred;height: 40px;text-align: center;border: 1px;">
+    <td>{{inventor.airLineName}}</td>
+    <td>{{inventor.flightNumber}}</td>
+    <td>{{inventor.fromPlace}}</td>
+    <td>{{inventor.toPlace}}</td>
+    <td>{{inventor.ticketCost}}</td>
+    <td style="background-color: white;">
+      <button class="btn btn-success" routerLink="/flyercount" (click)="BookTickets(inventor.inventoryId)">Book Ticket(s)</button>
+    </td>
+  </tr>
+</table>
