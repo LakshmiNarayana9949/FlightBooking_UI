@@ -32,14 +32,14 @@ export class AirlineComponent implements OnInit {
   }
 
   AddNewAirLine(){
+    debugger;
     this.airLine.createdBy = Number(localStorage.getItem('userid'))
     this.airLine.modifiedBy = Number(localStorage.getItem('userid'))
-    this._auth.addNewAirLine(this.airLine).subscribe(res => {      
+    this._auth.addNewAirLine(this.airLine).subscribe(res => {    
       this.airLine = new AirLine()
       this.GetAllAirLines()
     },
     err => {
-      this.successMsg = err.error.text;
       this.airLine = new AirLine()
       this.GetAllAirLines()
     })
