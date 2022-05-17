@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { UserComponent } from './user/user.component';
+import { TicketbookingComponent } from './ticketbooking/ticketbooking.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'ticket',
     component: TicketComponent
+  },
+  {
+    path: 'ticketbooking',
+    component: TicketbookingComponent
   }
 
 ];

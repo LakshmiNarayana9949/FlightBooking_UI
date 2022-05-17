@@ -1,0 +1,67 @@
+<div style="background-color: lightblue;">
+    <div style="height: 20px;"></div>
+
+    <div style="font-size: 20px;">
+        <span><b>FLIGHT DETAILS</b></span>
+    </div>
+
+    <table border="1" style="width: 100%; background-color: grey;">
+        <tr style="height: 40px;text-align: center;border: 1px;">
+        <td style="background-color:indianred; width:15%;">AirLine:</td> 
+        <td style="width:15%;"> {{inventory.airLineName}}</td>      
+        <td style="background-color:indianred; width:15%;">Flight Number:</td> 
+        <td style="width:15%;">{{inventory.flightNumber}}</td>
+        <td style="background-color:indianred; width:15%;">From Place:</td>
+        <td style="width:15%;">{{inventory.fromPlace}}</td>
+        </tr>
+        <tr style="height: 40px;text-align: center;border: 1px;">      
+        <td style="background-color:indianred; width:15%;">To Place:</td> 
+        <td style="width:15%;">{{inventory.toPlace}}</td>
+        <td style="background-color:indianred; width:15%;">Date:</td> 
+        <td style="width:15%;">{{inventory.startDate | date:'yyyy-MM-dd'}}</td>
+        <td style="background-color:indianred; width:15%;">Price:</td>
+        <td style="width:15%;">{{inventory.ticketCost}}</td>
+        </tr>
+        <tr style="height: 40px;text-align: center;border: 1px;">      
+            <td style="background-color:indianred; width:15%;">Business class seats:</td> 
+            <td style="width:15%;">{{inventory.bClassCount}}</td>
+            <td style="background-color:indianred; width:15%;">Non-Business class seats:</td> 
+            <td style="width:15%;">{{inventory.nBClassCount}}</td>
+            <td style="background-color:indianred; width:15%;">Instrument:</td>
+            <td style="width:15%;">{{inventory.instrument}}</td>
+        </tr>
+    </table>
+
+    <div style="height: 20px;"></div>
+
+    <div style="font-size: 20px;">
+        <span><b>FLYER DETAILS</b></span>
+    </div>
+
+    <table border="1" style="width: 100%; background-color: grey;">
+        <tr style="height: 40px;text-align: center;border: 1px;">
+        <td style="background-color:indianred; width:15%;">Name:</td> 
+        <td style="width:15%;"> <input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.PassengerName"></td>      
+        <td style="background-color:indianred; width:15%;">Passport Number:</td> 
+        <td style="width:15%;"><input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.PassportNumber"></td>
+        
+        </tr>
+        <tr style="height: 40px;text-align: center;border: 1px;">
+            <td style="background-color:indianred; width:15%;">Age:</td>
+            <td style="width:15%;"><input type="number" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.Age"></td>
+            <td style="background-color:indianred; width:15%;">Seat Type:</td>
+            <td style="width:15%;">
+                <select [(ngModel)] = "ticket.SeatType" style="height: 35px; width: 100%;">
+                    <option [value]="1"> Business class</option>
+                    <option [value]="0"> Non-Business class</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <div style="height: 20px;">{{successMsg}}</div>
+
+    <button class="btn btn-success" style="margin-left:45%" (click)="BookTicket()">Book Ticket</button>
+
+    <div style="height: 20px;"></div>
+</div>

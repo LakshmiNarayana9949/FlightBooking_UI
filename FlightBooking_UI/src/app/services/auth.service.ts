@@ -9,18 +9,24 @@ import { Inventory } from '../models/Inventory';
 import { AirLine } from '../models/AirLine';
 import { AirlineComponent } from '../airline/airline.component';
 import { Head } from 'rxjs';
+import { Ticket } from '../models/Ticket';
 
 @Injectable()
 export class AuthService {
     private _registerUrl = "https://localhost:44361/api/Register/RegisterNewUser";
+
     private _loginUrl = "https://localhost:44357/api/Authentication/Authenticate";
+
     private _userUrl = "https://localhost:44315/api/UserDetails/GetUserDetails";
+
     private _inventoryUrl = "https://localhost:44349/api/Inventory/AddNewInventory";
     private _allInventoriesUrl = "https://localhost:44349/api/Inventory/GetAllInventories";
     private _allInventoriesWithSearchUrl = "https://localhost:44349/api/Inventory/GetAllInventoriesWithSearch";
     private _oneInventoryUrl = "https://localhost:44349/api/Inventory/GetInventory";
     private _allAirLinesUrl = "https://localhost:44349/api/AirLine/GetAllAirlines";
     private _airLineUrl = "https://localhost:44349/api/AirLine/AddNewAirLine";
+
+    private _ticketUrl = "https://localhost:44340/api/TicketBooking/BookTicket"
     
 
     constructor(private http: HttpClient, private _router: Router) {
@@ -77,6 +83,10 @@ export class AuthService {
 
     addNewAirLine(airLine : AirLine){
         return this.http.post<any>(this._airLineUrl, airLine)
+    }
+
+    bookTicket(tickets : Array<Ticket>){
+        return this.http.post<any>(this._ticketUrl, tickets)
     }
     
 }

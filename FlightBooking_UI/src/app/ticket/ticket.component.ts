@@ -54,5 +54,6 @@ export class TicketComponent implements OnInit {
 
   BookTickets(inventoryId : number){
     localStorage.setItem('inventoryId', inventoryId.toString());
+    this._router.navigate(['/ticketbooking'])
   }
 }

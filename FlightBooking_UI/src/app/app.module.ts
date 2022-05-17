@@ -13,6 +13,7 @@ import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { LoginComponent } from './login/login.component';
+import { TicketbookingComponent } from './ticketbooking/ticketbooking.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     UserComponent,
     RegistrationComponent,
     LoginComponent,
+    TicketbookingComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService,UserComponent,LoginComponent,InventoryComponent,AirlineComponent,TicketComponent,{
+  providers: [AuthService,UserComponent,LoginComponent,InventoryComponent,AirlineComponent,TicketComponent,TicketbookingComponent,{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true
