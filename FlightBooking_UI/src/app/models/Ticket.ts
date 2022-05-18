@@ -1,11 +1,14 @@
 export class Ticket{
     Id : number = 0
+    UserId : number = 0
+    InventoryId : number = 0
     BookingID : string = ""
     TicketID : string = ""        
     FlightNumber : string = "" 
     DateOfJourney : Date = new Date()
     FromPlace : string = ""
     ToPlace : string = ""
+    Cost : number = 0
     BoardingTime : Date = new Date()
     PassengerName : string = "" 
     PassportNumber : string = "" 

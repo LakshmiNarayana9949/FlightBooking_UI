@@ -26,7 +26,8 @@ export class AuthService {
     private _allAirLinesUrl = "https://localhost:44349/api/AirLine/GetAllAirlines";
     private _airLineUrl = "https://localhost:44349/api/AirLine/AddNewAirLine";
 
-    private _ticketUrl = "https://localhost:44340/api/TicketBooking/BookTicket"
+    private _ticketUrl = "https://localhost:44340/api/TicketBooking/BookTicket";
+    private _allTicketsUrl = "https://localhost:44340/api/TicketBooking/GetAllTickets"
     
 
     constructor(private http: HttpClient, private _router: Router) {
@@ -87,6 +88,10 @@ export class AuthService {
 
     bookTicket(tickets : Array<Ticket>){
         return this.http.post<any>(this._ticketUrl, tickets)
+    }
+
+    getAllTickets(){
+        return this.http.get<any>(this._allTicketsUrl)
     }
     
 }

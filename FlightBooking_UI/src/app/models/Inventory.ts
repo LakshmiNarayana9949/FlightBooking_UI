@@ -11,6 +11,8 @@ export class Inventory{
     instrument : string = ""
     bClassCount : number = 0
     nBClassCount : number = 0
+    avlbleBClassCount : number = 0
+    avlbleNBClassCount : number = 0
     ticketCost : number = 0
     rows : number = 0
     mealType : number = 0

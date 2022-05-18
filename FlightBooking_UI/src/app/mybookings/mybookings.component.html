@@ -1,0 +1,27 @@
+<table border="1" style="width: 100%;">
+    <tr *ngIf="isTicketsAvailable()" style="background-color: gray; height: 40px;text-align: center;border: 1px;">
+      <td>Booking Id</td>
+      <td>Ticket Id</td>
+      <td>Flight Number</td>
+      <td>From Place</td>
+      <td>To Place</td>
+      <td>Reporting Time</td>
+      <td>Cost</td>
+      <td>Flyer Name</td>
+      <td>Age</td>
+      <td>Status</td>
+      <td style="background-color: white;"></td>
+    </tr>
+    <tr *ngFor="let ticket of myTickets" style="background-color: indianred;height: 40px;text-align: center;border: 1px;">
+      <td>{{ticket.BookingID}}</td>
+      <td>{{ticket.TicketID}}</td>
+      <td>{{ticket.FlightNumber}}</td>
+      <td>{{ticket.FromPlace}}</td>
+      <td>{{ticket.ToPlace}}</td>
+      <td>{{ticket.BoardingTime}}</td>
+      <td>{{ticket.Cost}}</td>
+      <td>{{ticket.PassengerName}}</td>
+      <td>{{ticket.Age}}</td>
+      <td>{{ticket.StatusStr}}</td>
+    </tr>
+  </table>

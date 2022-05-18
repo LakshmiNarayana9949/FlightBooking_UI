@@ -24,10 +24,13 @@ export class TicketbookingComponent implements OnInit {
   }
 
   BookTicket(){
+    this.ticket.UserId = Number(localStorage.getItem('userid'))
+    this.ticket.InventoryId = this.inventory.inventoryId
     this.ticket.FlightNumber = this.inventory.flightNumber
     this.ticket.DateOfJourney = this.inventory.startDate
     this.ticket.FromPlace = this.inventory.fromPlace
     this.ticket.ToPlace = this.inventory.toPlace
+    this.ticket.Cost = this.inventory.ticketCost
     this.ticket.SeatType = Number(this.ticket.SeatType)
     this.ticket.CreatedBy = Number(localStorage.getItem('userid'))
     this.ticket.ModifiedBy = Number(localStorage.getItem('userid'))
@@ -37,11 +40,13 @@ export class TicketbookingComponent implements OnInit {
       this.successMsg = res.text
       this.inventory = new Inventory()
       this.ticket = new Ticket()
+      this._router.navigate(['/mybookings'])
     },
     err => {
       this.successMsg = err.error.text
       this.inventory = new Inventory()
       this.ticket = new Ticket()
+      this._router.navigate(['/mybookings'])
     })
   }
 

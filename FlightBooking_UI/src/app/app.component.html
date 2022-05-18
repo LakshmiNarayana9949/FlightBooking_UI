@@ -12,7 +12,13 @@
         <a class="nav-link" *ngIf="LoggedIn(true) && IsAdmin()" routerLink="/inventory">Inventories</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="LoggedIn(true) && !IsAdmin()" routerLink="/ticket">Tickets</a>
+        <a class="nav-link" *ngIf="LoggedIn(true) && !IsAdmin()" routerLink="/userdetails">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="LoggedIn(true) && !IsAdmin()" routerLink="/ticket">Book Tickets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="LoggedIn(true) && !IsAdmin()" routerLink="/mybookings">My Bookings</a>
       </li>
     </ul>
     <ul class="navbar-nav">

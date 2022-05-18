@@ -45,8 +45,8 @@ export class AirlineComponent implements OnInit {
     })
   }
 
-  hasError(validator : string, controlname : string): boolean{
-    return this.airLine.formAirLineGroup.controls[controlname].hasError(validator);
-  }
+  // hasError(validator : string, controlname : string): boolean{
+  //   return this.airLine.formAirLineGroup.controls[controlname].hasError(validator);
+  // }
 
 }
