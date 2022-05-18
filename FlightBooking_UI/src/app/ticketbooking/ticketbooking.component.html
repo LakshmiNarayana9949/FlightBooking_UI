@@ -41,17 +41,17 @@
     <table border="1" style="width: 100%; background-color: grey;">
         <tr style="height: 40px;text-align: center;border: 1px;">
         <td style="background-color:indianred; width:15%;">Name:</td> 
-        <td style="width:15%;"> <input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.PassengerName"></td>      
+        <td style="width:15%;"> <input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.passengerName"></td>      
         <td style="background-color:indianred; width:15%;">Passport Number:</td> 
-        <td style="width:15%;"><input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.PassportNumber"></td>
+        <td style="width:15%;"><input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.passportNumber"></td>
         
         </tr>
         <tr style="height: 40px;text-align: center;border: 1px;">
             <td style="background-color:indianred; width:15%;">Age:</td>
-            <td style="width:15%;"><input type="number" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.Age"></td>
+            <td style="width:15%;"><input type="number" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.age"></td>
             <td style="background-color:indianred; width:15%;">Seat Type:</td>
             <td style="width:15%;">
-                <select [(ngModel)] = "ticket.SeatType" style="height: 35px; width: 100%;">
+                <select [(ngModel)] = "ticket.seatType" style="height: 35px; width: 100%;">
                     <option [value]="1"> Business class</option>
                     <option [value]="0"> Non-Business class</option>
                 </select>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { Ticket } from '../models/Ticket';
 import { AuthService } from '../services/auth.service';
 
@@ -12,11 +12,13 @@ export class MybookingsComponent implements OnInit {
   constructor(private _auth : AuthService, private _router : Router) { }
 
   ngOnInit(): void {
+    this.getAllTickets()
   }
 
   getAllTickets(){
     this._auth.getAllTickets().subscribe(res => {
       this.myTickets = res;
+      debugger;
       this.isTicketsAvailable();
     },
     err => {

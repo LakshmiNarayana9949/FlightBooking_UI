@@ -24,16 +24,16 @@ export class TicketbookingComponent implements OnInit {
   }
 
   BookTicket(){
-    this.ticket.UserId = Number(localStorage.getItem('userid'))
-    this.ticket.InventoryId = this.inventory.inventoryId
-    this.ticket.FlightNumber = this.inventory.flightNumber
-    this.ticket.DateOfJourney = this.inventory.startDate
-    this.ticket.FromPlace = this.inventory.fromPlace
-    this.ticket.ToPlace = this.inventory.toPlace
-    this.ticket.Cost = this.inventory.ticketCost
-    this.ticket.SeatType = Number(this.ticket.SeatType)
-    this.ticket.CreatedBy = Number(localStorage.getItem('userid'))
-    this.ticket.ModifiedBy = Number(localStorage.getItem('userid'))
+    this.ticket.userId = Number(localStorage.getItem('userid'))
+    this.ticket.inventoryId = this.inventory.inventoryId
+    this.ticket.flightNumber = this.inventory.flightNumber
+    this.ticket.dateOfJourney = this.inventory.startDate
+    this.ticket.fromPlace = this.inventory.fromPlace
+    this.ticket.toPlace = this.inventory.toPlace
+    this.ticket.cost = this.inventory.ticketCost
+    this.ticket.seatType = Number(this.ticket.seatType)
+    this.ticket.createdBy = Number(localStorage.getItem('userid'))
+    this.ticket.modifiedBy = Number(localStorage.getItem('userid'))
 
     this.tickets.push(this.ticket)
     this._auth.bookTicket(this.tickets).subscribe(res => {
