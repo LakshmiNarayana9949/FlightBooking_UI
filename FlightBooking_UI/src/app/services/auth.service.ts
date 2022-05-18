@@ -26,8 +26,11 @@ export class AuthService {
     private _allAirLinesUrl = "https://localhost:44349/api/AirLine/GetAllAirlines";
     private _airLineUrl = "https://localhost:44349/api/AirLine/AddNewAirLine";
 
-    private _ticketUrl = "https://localhost:44340/api/TicketBooking/BookTicket";
-    private _allTicketsUrl = "https://localhost:44340/api/TicketBooking/GetAllTickets"
+    private _bookTticketUrl = "https://localhost:44340/api/TicketBooking/BookTicket";
+    private _allTicketsUrl = "https://localhost:44340/api/TicketBooking/GetAllTickets";
+    private _cancelTicketUrl = "https://localhost:44340/api/TicketBooking/CancelTicket";
+    private _allTicketsWithSearchUrl = "https://localhost:44340/api/TicketBooking/GetTicketsWithSearch";
+    private _ticketInfoURL = "https://localhost:44340/api/TicketBooking/GetTicketInfo"
     
 
     constructor(private http: HttpClient, private _router: Router) {
@@ -87,12 +90,24 @@ export class AuthService {
     }
 
     bookTicket(tickets : Array<Ticket>){
-        return this.http.post<any>(this._ticketUrl, tickets)
+        return this.http.post<any>(this._bookTticketUrl, tickets)
     }
 
-    getAllTickets(){   
-        debugger;     
+    getAllTickets(){    
         return this.http.get<any>(this._allTicketsUrl + "/" + Number(localStorage.getItem('userid')))
     }
     
+    cancelTicket(ticketId : string){
+        return this.http.put<any>(this._cancelTicketUrl + "/" + ticketId, '')
+    }
+
+    getTicketWithSearch(searchTxt : string){ 
+        debugger;       
+        return this.http.get<any>(this._allTicketsWithSearchUrl + "?userId=" + 
+                                    Number(localStorage.getItem('userid')) + "&TicketID=" + searchTxt )
+    }
+
+    getTicketInfo(ticketId : string){
+        return this.http.get<any>(this._ticketInfoURL + "/" + ticketId)
+    }
 }

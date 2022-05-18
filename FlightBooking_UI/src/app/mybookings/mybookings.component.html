@@ -1,5 +1,20 @@
 <div style="height: 20px;"></div>
 
+<table style="height: 40px;width: 100%;">
+  <tr style="width: 100%;">
+    <td style="width: 35%;">
+      <input type="text" [(ngModel)]="searchTxt" style="height: 40px;width: 100%;" placeholder="Please enter TicketId or BokingId"/>
+    </td>
+    <td style="width: 3%;"></td>
+    <td style="width: 7%;">
+      <button type="submit"class="btn btn-success" (click)="GetTicketsWithSearch()">Search</button>
+    </td>
+    <td style="width: 55%;"></td>
+  </tr>
+</table>
+
+<div style="height: 20px;"></div>
+
 <table border="1" style="width: 100%;">
     <tr *ngIf="isTicketsAvailable()" style="background-color: #007bff; height: 40px;text-align: center;border: 1px;">
       <td>Booking Id</td>
@@ -12,8 +27,9 @@
       <td>Flyer Name</td>
       <td>Age</td>
       <td>Status</td>
+      <td>Actions</td>
     </tr>
-    <tr *ngFor="let ticket of myTickets" style="height: 40px;text-align: center;border: 1px;">
+    <tr *ngFor="let ticket of myTickets" (click)="ShowTicket(ticket.ticketID)" style="height: 40px;text-align: center;border: 1px;cursor: pointer;">
       <td>{{ticket.bookingID}}</td>
       <td>{{ticket.ticketID}}</td>
       <td>{{ticket.flightNumber}}</td>
@@ -24,5 +40,6 @@
       <td>{{ticket.passengerName}}</td>
       <td>{{ticket.age}}</td>
       <td>{{ticket.statusStr}}</td>
+      <td *ngIf = "ticket.status == 1"><button type="submit" (click)="CancelTicket(ticket.ticketID)" class="btn btn-success">Cancel</button></td>
     </tr>
   </table>

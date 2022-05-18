@@ -8,6 +8,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { UserComponent } from './user/user.component';
 import { TicketbookingComponent } from './ticketbooking/ticketbooking.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
+import { ShowticketComponent } from './showticket/showticket.component';
 
 const routes: Routes = [
 
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'mybookings',
     component: MybookingsComponent
+  },
+  {
+    path: 'ticketdetails',
+    component: ShowticketComponent
   }
 
 ];
