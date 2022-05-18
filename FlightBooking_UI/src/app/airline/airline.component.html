@@ -1,18 +1,16 @@
-<div style="background-color: lightblue; height: 1000px;">
-  <div>
-    <span style="color: blue; margin-left: 15%;">{{airLineMsg}}</span>
-  </div>
+<div style="height: 20px;"></div>
+<div style="height: 1000px;">
   <table style="width: 100%;">
     <tr>
       <td style="width: 2%;"></td>
       <td style="width: 50%;">
         <table border="1" style="width: 100%;">
-          <tr style="background-color: gray;height: 40px;text-align: center;border: 1px;">
+          <tr style="background-color: #007bff;height: 40px;text-align: center;border: 1px;">
             <td>AirLine Name</td>
             <td>Address</td>
             <td>Contact Number</td>
           </tr>
-          <tr *ngFor="let airLine of airLines" style="background-color: indianred;height: 40px;text-align: center;border: 1px;">
+          <tr *ngFor="let airLine of airLines" style="height: 40px;text-align: center;border: 1px;">
             <td>{{airLine.name}}</td>
             <td>{{airLine.address}}</td>
             <td>{{airLine.contactNumber}}</td>
@@ -26,7 +24,7 @@
         <div>
           <div class="card rounded-0">
             <div class="Card-header">
-                <h3 class="mb-0" style="text-align: center;">Add new AirLine</h3>
+                <h3 class="mb-0" style="text-align: center;vertical-align: middle;">Add new AirLine</h3>
             </div>
             <div class="card-body">
                 <div class="form">
@@ -50,7 +48,7 @@
                         Phone number must be a number
                       </div> -->
                     </div>                      
-                    <button type="submit" (click)="AddNewAirLine()" class="btn btn-success">Add</button>
+                    <button type="submit" style="margin-left: 42%;" (click)="AddNewAirLine()" class="btn btn-success">Add</button>
                 </div>
               </div>
             </div>

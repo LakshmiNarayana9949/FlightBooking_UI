@@ -16,7 +16,7 @@ export class InventoryComponent implements OnInit {
   inventories : Array<Inventory> = new Array<Inventory>()
   airLines : Array<AirLine> = new Array<AirLine>()
   successMsg : string = ''
-  constructor(private _auth : AuthService, private _router : Router) { }
+  constructor(private _auth : AuthService) { }
 
   ngOnInit() {
     this.ShowAllInventories()
@@ -43,7 +43,7 @@ export class InventoryComponent implements OnInit {
     this.inventoryModel.mealType = Number(this.inventoryModel.mealType)
     this.inventoryModel.airLineId = Number(this.inventoryModel.airLineId)
     this.inventoryModel.avlbleBClassCount = this.inventoryModel.bClassCount
-    this.inventoryModel.avlbleNBClassCount = this.inventoryModel.avlbleNBClassCount
+    this.inventoryModel.avlbleNBClassCount = this.inventoryModel.nBClassCount
 
     this._auth.addNewInventory(this.inventoryModel).subscribe(res => {
       this.inventoryModel = new Inventory()

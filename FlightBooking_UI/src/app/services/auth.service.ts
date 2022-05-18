@@ -90,8 +90,9 @@ export class AuthService {
         return this.http.post<any>(this._ticketUrl, tickets)
     }
 
-    getAllTickets(){
-        return this.http.get<any>(this._allTicketsUrl)
+    getAllTickets(){   
+        debugger;     
+        return this.http.get<any>(this._allTicketsUrl + "/" + Number(localStorage.getItem('userid')))
     }
     
 }

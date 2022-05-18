@@ -1,5 +1,7 @@
+<div style="height: 20px;"></div>
+
 <table border="1" style="width: 100%;">
-    <tr *ngIf="isTicketsAvailable()" style="background-color: gray; height: 40px;text-align: center;border: 1px;">
+    <tr *ngIf="isTicketsAvailable()" style="background-color: #007bff; height: 40px;text-align: center;border: 1px;">
       <td>Booking Id</td>
       <td>Ticket Id</td>
       <td>Flight Number</td>
@@ -10,9 +12,8 @@
       <td>Flyer Name</td>
       <td>Age</td>
       <td>Status</td>
-      <td style="background-color: white;"></td>
     </tr>
-    <tr *ngFor="let ticket of myTickets" style="background-color: indianred;height: 40px;text-align: center;border: 1px;">
+    <tr *ngFor="let ticket of myTickets" style="height: 40px;text-align: center;border: 1px;">
       <td>{{ticket.bookingID}}</td>
       <td>{{ticket.ticketID}}</td>
       <td>{{ticket.flightNumber}}</td>
