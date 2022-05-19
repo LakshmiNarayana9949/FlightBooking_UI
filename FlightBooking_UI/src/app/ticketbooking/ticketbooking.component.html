@@ -59,9 +59,29 @@
         </tr>
     </table>
 
+    <button class="btn btn-success" style="margin-left:45%" (click)="AddNewPassenger()">Add Another Passenger</button>
+    <button class="btn btn-success" style="margin-left:45%" (click)="BookTicket()">Book Ticket</button>    
+
+    <table border="1" style="width: 100%;">
+        <tr style="height: 40px;text-align: center;border: 1px;">
+            <td style="background-color:#007bff; width:25%;">Name</td>         
+            <td style="background-color:#007bff; width:25%;">Passport Number</td> 
+            <td style="background-color:#007bff; width:25%;">Age</td>         
+            <td style="background-color:#007bff; width:25%;">Actions</td>         
+        </tr>
+        <tr *ngFor="let cust of usersArray" style="height: 40px;text-align: center;border: 1px;">
+            <td style="background-color:#007bff; width:35%;">{{cust.name}}</td>         
+            <td style="background-color:#007bff; width:30%;">{{cust.passportNumber}}</td> 
+            <td style="background-color:#007bff; width:35%;">{{cust.age}}</td> 
+            <td style="background-color:#007bff; width:35%;">
+                <button class="btn btn-success" (click)="RemovePassenger(cust.passportNumber)">Remove Flyer</button>    
+            </td> 
+        </tr>
+    </table>
+
     <div style="height: 20px;">{{successMsg}}</div>
 
-    <button class="btn btn-success" style="margin-left:45%" (click)="BookTicket()">Book Ticket</button>
+    
 
     <div style="height: 20px;"></div>
 </div>

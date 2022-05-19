@@ -22,3 +22,9 @@ export class Ticket{
     modifiedBy : number = 0 
     modifiedOn : Date = new Date()
 }
+export class UserData{
+    name : string = ""
+    passportNumber : string = ""
+    age : number = 0
+    seatType : number = 0
+}
