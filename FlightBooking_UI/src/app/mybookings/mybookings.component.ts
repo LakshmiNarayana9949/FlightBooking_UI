@@ -39,6 +39,7 @@ export class MybookingsComponent implements OnInit {
   CancelTicket(ticketId : string){
     this._auth.cancelTicket(ticketId).subscribe(res => {
       this.getAllTickets()
+      this._router.navigate(['/mybookings'])
     },
     err => {
       console.log(err);

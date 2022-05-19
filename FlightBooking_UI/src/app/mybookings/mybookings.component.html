@@ -16,13 +16,14 @@
 <div style="height: 20px;"></div>
 
 <table border="1" style="width: 100%;">
-    <tr *ngIf="isTicketsAvailable()" style="background-color: #007bff; height: 40px;text-align: center;border: 1px;">
+    <tr *ngIf="isTicketsAvailable()" style="background-color: #6b6bf3; height: 40px;text-align: center;border: 1px;">
       <td>Booking Id</td>
       <td>Ticket Id</td>
       <td>Flight Number</td>
       <td>From Place</td>
       <td>To Place</td>
-      <td>Reporting Time</td>
+      <td>Date</td>
+      <td>Time</td>
       <td>Cost</td>
       <td>Flyer Name</td>
       <td>Age</td>
@@ -35,7 +36,8 @@
       <td>{{ticket.flightNumber}}</td>
       <td>{{ticket.fromPlace}}</td>
       <td>{{ticket.toPlace}}</td>
-      <td>{{ticket.boardingTime}}</td>
+      <td>{{ticket.boardingTime | date: 'yyyy-mm-dd' }}</td>
+      <td>{{ticket.boardingTime | date : 'h:mm:ss a'}}</td>
       <td>{{ticket.cost}}</td>
       <td>{{ticket.passengerName}}</td>
       <td>{{ticket.age}}</td>

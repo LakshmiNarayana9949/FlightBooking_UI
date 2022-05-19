@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate([('/airline')])
       }
       else{
-        this._router.navigate([('/userdetails')])
+        this._router.navigate([('/ticket')])
       }
     },
       err => this.errorMessage = err.error.text

@@ -7,27 +7,27 @@
 
     <table border="1" style="width: 100%;">
         <tr style="height: 40px;text-align: center;border: 1px;">
-        <td style="background-color:#007bff; width:15%;">AirLine:</td> 
+        <td style="background-color:#6b6bf3; width:15%;">AirLine:</td> 
         <td style="width:15%;"> {{inventory.airLineName}}</td>      
-        <td style="background-color:#007bff; width:15%;">Flight Number:</td> 
+        <td style="background-color:#6b6bf3; width:15%;">Flight Number:</td> 
         <td style="width:15%;">{{inventory.flightNumber}}</td>
-        <td style="background-color:#007bff; width:15%;">From Place:</td>
+        <td style="background-color:#6b6bf3; width:15%;">From Place:</td>
         <td style="width:15%;">{{inventory.fromPlace}}</td>
         </tr>
         <tr style="height: 40px;text-align: center;border: 1px;">      
-        <td style="background-color:#007bff; width:15%;">To Place:</td> 
+        <td style="background-color:#6b6bf3; width:15%;">To Place:</td> 
         <td style="width:15%;">{{inventory.toPlace}}</td>
-        <td style="background-color:#007bff; width:15%;">Date:</td> 
+        <td style="background-color:#6b6bf3; width:15%;">Date:</td> 
         <td style="width:15%;">{{inventory.startDate | date:'yyyy-MM-dd'}}</td>
-        <td style="background-color:#007bff; width:15%;">Price:</td>
+        <td style="background-color:#6b6bf3; width:15%;">Price:</td>
         <td style="width:15%;">{{inventory.ticketCost}}</td>
         </tr>
         <tr style="height: 40px;text-align: center;border: 1px;">      
-            <td style="background-color:#007bff; width:15%;">Business class seats:</td> 
+            <td style="background-color:#6b6bf3; width:15%;">Business class seats:</td> 
             <td style="width:15%;">{{inventory.bClassCount}}</td>
-            <td style="background-color:#007bff; width:15%;">Non-Business class seats:</td> 
+            <td style="background-color:#6b6bf3; width:15%;">Non-Business class seats:</td> 
             <td style="width:15%;">{{inventory.nBClassCount}}</td>
-            <td style="background-color:#007bff; width:15%;">Instrument:</td>
+            <td style="background-color:#6b6bf3; width:15%;">Instrument:</td>
             <td style="width:15%;">{{inventory.instrument}}</td>
         </tr>
     </table>
@@ -40,16 +40,16 @@
 
     <table border="1" style="width: 100%;">
         <tr style="height: 40px;text-align: center;border: 1px;">
-        <td style="background-color:#007bff; width:15%;">Name:</td> 
+        <td style="background-color:#6b6bf3; width:15%;">Name:</td> 
         <td style="width:15%;"> <input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.passengerName"></td>      
-        <td style="background-color:#007bff; width:15%;">Passport Number:</td> 
+        <td style="background-color:#6b6bf3; width:15%;">Passport Number:</td> 
         <td style="width:15%;"><input type="text" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.passportNumber"></td>
         
         </tr>
         <tr style="height: 40px;text-align: center;border: 1px;">
-            <td style="background-color:#007bff; width:15%;">Age:</td>
+            <td style="background-color:#6b6bf3; width:15%;">Age:</td>
             <td style="width:15%;"><input type="number" style="height: 35px; width: 100%;" [(ngModel)] = "ticket.age"></td>
-            <td style="background-color:#007bff; width:15%;">Seat Type:</td>
+            <td style="background-color:#6b6bf3; width:15%;">Seat Type:</td>
             <td style="width:15%;">
                 <select [(ngModel)] = "ticket.seatType" style="height: 35px; width: 100%;">
                     <option [value]="1"> Business class</option>
@@ -59,29 +59,34 @@
         </tr>
     </table>
 
-    <button class="btn btn-success" style="margin-left:45%" (click)="AddNewPassenger()">Add Another Passenger</button>
-    <button class="btn btn-success" style="margin-left:45%" (click)="BookTicket()">Book Ticket</button>    
+    <div style="height: 20px;"></div>
+
+    <button class="btn btn-success" style="margin-left:42%" (click)="AddNewPassenger()">Add Another Passenger</button>    
+
+    <div style="height: 20px;"></div>
 
     <table border="1" style="width: 100%;">
         <tr style="height: 40px;text-align: center;border: 1px;">
-            <td style="background-color:#007bff; width:25%;">Name</td>         
-            <td style="background-color:#007bff; width:25%;">Passport Number</td> 
-            <td style="background-color:#007bff; width:25%;">Age</td>         
-            <td style="background-color:#007bff; width:25%;">Actions</td>         
+            <td style="background-color:#6b6bf3; width:25%;">Name</td>         
+            <td style="background-color:#6b6bf3; width:25%;">Passport Number</td> 
+            <td style="background-color:#6b6bf3; width:25%;">Age</td>         
+            <td style="background-color:#6b6bf3; width:25%;">Actions</td>         
         </tr>
         <tr *ngFor="let cust of usersArray" style="height: 40px;text-align: center;border: 1px;">
-            <td style="background-color:#007bff; width:35%;">{{cust.name}}</td>         
-            <td style="background-color:#007bff; width:30%;">{{cust.passportNumber}}</td> 
-            <td style="background-color:#007bff; width:35%;">{{cust.age}}</td> 
-            <td style="background-color:#007bff; width:35%;">
+            <td style="width:35%;">{{cust.name}}</td>         
+            <td style="width:30%;">{{cust.passportNumber}}</td> 
+            <td style="width:35%;">{{cust.age}}</td> 
+            <td style="width:35%;">
                 <button class="btn btn-success" (click)="RemovePassenger(cust.passportNumber)">Remove Flyer</button>    
             </td> 
         </tr>
     </table>
 
-    <div style="height: 20px;">{{successMsg}}</div>
+    <div style="height: 20px;"></div>
 
-    
+    <button class="btn btn-success" style="margin-left:45%" (click)="BookTicket()">Book Ticket(s)</button>    
+
+    <div style="height: 20px;">{{successMsg}}</div>    
 
     <div style="height: 20px;"></div>
 </div>

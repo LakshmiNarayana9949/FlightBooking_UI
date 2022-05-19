@@ -3,7 +3,7 @@
   <tr style="width: 100%;">
     <td style="width: 80%;">
       <table border="1" style="width: 100%;">
-        <tr style="width: 100%;background-color:#007bff; height: 40px;text-align: center;border: 1px;">
+        <tr style="width: 100%;background-color:#6b6bf3; height: 40px;text-align: center;border: 1px;">
           <td style="width: 25%;">From</td>
           <td style="width: 25%;">To</td>
           <td style="width: 25%;">Start Date</td>
@@ -25,13 +25,13 @@
 <table style="height: 30px;"></table>
 
 <table border="1" style="width: 100%;">
-  <tr *ngIf="isFlightsAvailable()" style="background-color: #007bff; height: 40px;text-align: center;border: 1px;">
+  <tr *ngIf="isFlightsAvailable()" style="background-color: #6b6bf3; height: 40px;text-align: center;border: 1px;">
     <td>AirLine</td>
     <td>Flight Number</td>
     <td>From Place</td>
     <td>To Place</td>
     <td>Cost</td>
-    <td style="background-color: white;"></td>
+    <td>Action</td>
   </tr>
   <tr *ngFor="let inventor of inventories" style="height: 40px;text-align: center;border: 1px;">
     <td>{{inventor.airLineName}}</td>
@@ -39,7 +39,7 @@
     <td>{{inventor.fromPlace}}</td>
     <td>{{inventor.toPlace}}</td>
     <td>{{inventor.ticketCost}}</td>
-    <td style="background-color: white;">
+    <td>
       <button class="btn btn-success" (click)="BookTickets(inventor.inventoryId)">Book Ticket(s)</button>
     </td>
   </tr>
