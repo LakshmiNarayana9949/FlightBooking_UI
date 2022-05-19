@@ -1,10 +1,79 @@
-{{ticket.bookingID}}
-      {{ticket.ticketID}}
-      {{ticket.flightNumber}}
-      {{ticket.fromPlace}}
-      {{ticket.toPlace}}
-      {{ticket.boardingTime}}
-      {{ticket.cost}}
-      {{ticket.passengerName}}
-      {{ticket.age}}
-      {{ticket.statusStr}}
+<div style="height: 25px;"></div>     
+
+
+<table style="background-color: lightskyblue; width: 100%; border-radius: 5px;">
+      <tr style="width: 100%;">
+            <td style="width: 65%;">
+                  <table style="width: 100%;">
+                        <tr style="height: 15px;">
+                        </tr>
+                        <tr>
+                            <td><span style="margin-left: 5%;">Passenger Name</span></td>
+                            <td><span>Carrier</span></td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                            <td><span style="margin-left: 5%;">{{ticket.passengerName | uppercase}}</span></td>
+                            <td><span>{{airLineName | uppercase}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><span style="margin-left: 5%;">From</span></td>
+                            <td><span>To</span></td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                              <td><span style="margin-left: 5%;">{{ticket.fromPlace | uppercase}}</span></td>
+                              <td>{{ticket.toPlace | uppercase}}</td>
+                        </tr>
+                        <tr>
+                            <td><span style="margin-left: 5%;">Date</span></td>
+                            <td>Time</td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                            <td><span style="margin-left: 5%;">{{ticket.boardingTime | date : 'yyyy-mm-dd'}}</span></td>
+                            <td>{{ticket.boardingTime | date : 'h:mm:ss a'}}</td>
+                        </tr>
+                        <tr>
+                            <td><span style="margin-left: 5%;">Flight</span></td>
+                            <td>Seat</td>
+                            <td>Board Till</td>
+                        </tr>
+                        <tr style="font-weight: bold;">
+                            <td><span style="margin-left: 5%;">{{ticket.flightNumber | uppercase}}</span></td>
+                            <td>{{ticket.seatNumber | uppercase}}</td>
+                            <td>{{ticket.boardingTime | date : 'h:mm:ss a'}}</td>
+                        </tr>
+                        
+                      </table>
+            </td>
+            <td style="width: 0%;background-color: blue;"></td>
+            <td style="width: 35%;">
+                  <table style="width: 100%;">
+                        <tr style="height: 15px;"></tr>
+                        <tr><span style="margin-left: 5%;">Passenger Name</span></tr>
+                        <tr><span style="margin-left: 5%; font-weight: bold;">{{ticket.passengerName | uppercase}}</span></tr>
+                        <tr><span style="margin-left: 5%;">From</span></tr>
+                        <tr><span style="margin-left: 5%; font-weight: bold;">{{ticket.fromPlace | uppercase}}</span></tr>
+                        <tr><span style="margin-left: 5%;">To</span></tr>
+                        <tr><span style="margin-left: 5%; font-weight: bold;">{{ticket.toPlace | uppercase}}</span></tr>
+                        <tr>
+                              <td><span style="margin-left: 5%;">Date</span></td>
+                              <td><span>Time</span></td>
+                        </tr>
+                        <tr>
+                              <td><span style="margin-left: 5%;font-weight: bold;">{{ticket.boardingTime | date : 'yyyy-mm-dd'}}</span></td>
+                              <td><span style="font-weight: bold;">{{ticket.boardingTime | date : 'h:mm:ss a'}}</span></td>
+                        </tr>
+                        <tr>
+                              <td><span style="margin-left: 5%;">Flight</span></td>
+                              <td><span>Seat</span></td>
+                              <td><span>Board till</span></td>
+                        </tr>
+                        <tr>
+                              <td><span style="margin-left: 5%;font-weight: bold;">{{ticket.flightNumber | uppercase}}</span></td>
+                              <td style="font-weight: bold;">{{ticket.seatNumber | uppercase}}</td>
+                              <td style="font-weight: bold;">{{ticket.boardingTime | date : 'h:mm:ss a'}}</td>
+                        </tr>
+                        <tr style="height: 15px;"></tr>
+                  </table>
+            </td>
+      </tr>
+</table>
