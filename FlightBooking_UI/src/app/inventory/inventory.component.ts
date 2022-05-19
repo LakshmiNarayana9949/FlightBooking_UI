@@ -74,6 +74,9 @@ export class InventoryComponent implements OnInit {
   }
 
   UpdateInventory(){
+    this.inventoryModel.scheduledDays = Number(this.inventoryModel.scheduledDays)
+    this.inventoryModel.mealType = Number(this.inventoryModel.mealType)
+    this.inventoryModel.airLineId = Number(this.inventoryModel.airLineId)
     this._auth.updateInventory(this.inventoryModel).subscribe(res => {
       this.inventoryModel = new Inventory
       this.ShowAllInventories()
