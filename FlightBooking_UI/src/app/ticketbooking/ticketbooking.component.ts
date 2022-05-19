@@ -22,7 +22,7 @@ export class TicketbookingComponent implements OnInit {
       this.inventory = res;
     },
     err => {
-      
+      console.log(err)
     })
   }
 
@@ -69,6 +69,7 @@ export class TicketbookingComponent implements OnInit {
       this._router.navigate(['/mybookings'])
     },
     err => {
+      console.log(err)
       this.successMsg = err.error.text
       this.inventory = new Inventory()
       this.ticket = new Ticket()

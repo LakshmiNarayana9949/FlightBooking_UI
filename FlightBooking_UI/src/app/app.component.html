@@ -14,7 +14,7 @@
         <a class="nav-link" style="color: black;" *ngIf="LoggedIn(true) && !IsAdmin()" routerLink="/userdetails">Profile</a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" style="color: black;" *ngIf="LoggedIn(true) && !IsAdmin()" routerLink="/ticket">Book Tickets</a>
+        <a class="nav-link" style="color: black;" *ngIf="!IsAdmin()" routerLink="/ticket">Book Tickets</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" style="color: black;" *ngIf="LoggedIn(true) && !IsAdmin()" routerLink="/mybookings">My Bookings</a>

@@ -23,7 +23,7 @@ export class AirlineComponent implements OnInit {
       this.BuildGrid(res)
     },
     err => {
-
+      console.log(err)
     })
   }
 
@@ -40,6 +40,7 @@ export class AirlineComponent implements OnInit {
       this.GetAllAirLines()
     },
     err => {
+      console.log(err)
       this.airLine = new AirLine()
       this.GetAllAirLines()
     })

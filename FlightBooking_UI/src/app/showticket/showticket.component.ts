@@ -33,7 +33,7 @@ export class ShowticketComponent implements OnInit {
       this._router.navigate(['/ticketdetails'])
     },
     err => {
-
+      console.log(err)
     })
   }
 

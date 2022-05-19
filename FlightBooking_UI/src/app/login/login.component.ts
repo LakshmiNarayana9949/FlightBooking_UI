@@ -21,10 +21,18 @@ export class LoginComponent implements OnInit {
         this._router.navigate([('/airline')])
       }
       else{
-        this._router.navigate([('/ticket')])
+        if(localStorage.getItem('inventoryId') != null){
+          this._router.navigate(['/ticketbooking'])
+        }
+        else{
+          this._router.navigate([('/ticket')])
+        }
       }
     },
-      err => this.errorMessage = err.error.text
+      err => {
+        console.log(err)
+        this.errorMessage = err.error.text
+      }
     );
   }
 

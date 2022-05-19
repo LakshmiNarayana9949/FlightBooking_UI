@@ -51,6 +51,7 @@ export class InventoryComponent implements OnInit {
 
     },
     err => {
+      console.log(err)
       this.inventoryModel = new Inventory()
       this.ShowAllInventories()
     })

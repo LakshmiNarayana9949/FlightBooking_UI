@@ -15,10 +15,11 @@ export class UserComponent implements OnInit {
     this._auth.getUserDetails().subscribe(res => {
       this.userLoginMessage = 'Welcome ' + res.firstName
       localStorage.setItem('usertype', res.userType)
-      localStorage.setItem('firstname', res.firstName)
-      
-      
-    }, err => console.log(err));
+      localStorage.setItem('firstname', res.firstName)     
+    }, 
+    err => {
+      console.log(err)
+    });
   }  
 
   ngOnInit(): void {

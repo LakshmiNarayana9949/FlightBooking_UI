@@ -35,7 +35,7 @@ export class TicketComponent implements OnInit {
       }
     },
     err => {
-
+      console.log(err)
     })
   }
 
@@ -54,6 +54,11 @@ export class TicketComponent implements OnInit {
 
   BookTickets(inventoryId : number){
     localStorage.setItem('inventoryId', inventoryId.toString());
-    this._router.navigate(['/ticketbooking'])
+    if(this._auth.loggedIn()){      
+      this._router.navigate(['/ticketbooking'])
+    }
+    else{
+      this._router.navigate(['/login'])
+    }
   }
 }

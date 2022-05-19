@@ -23,7 +23,7 @@ export class MybookingsComponent implements OnInit {
       this.isTicketsAvailable();
     },
     err => {
-
+      console.log(err)
     })
   }
 
@@ -48,21 +48,16 @@ export class MybookingsComponent implements OnInit {
 
   GetTicketsWithSearch(){
     this.myTickets = []
-    debugger
-    if(this.searchTxt == null){
-      
-    }
     this._auth.getTicketWithSearch(this.searchTxt).subscribe(res => {
       this.myTickets = res;
       this.isTicketsAvailable();
     },
     err => {
-
+      console.log(err)
     })
   }
 
   ShowTicket(ticketId : string){
-    debugger;
     localStorage.setItem('ticketid', ticketId)
     this._router.navigate(['/ticketdetails'])
   }
