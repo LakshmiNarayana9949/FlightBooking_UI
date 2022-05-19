@@ -12,6 +12,7 @@
             <td>From Place</td>
             <td>To Place</td>
             <td>Cost</td>
+            <td>Actions</td>
           </tr>
           <tr *ngFor="let inventor of inventories" style="height: 40px;text-align: center;border: 1px;">
             <td>{{inventor.airLineName}}</td>
@@ -19,6 +20,10 @@
             <td>{{inventor.fromPlace}}</td>
             <td>{{inventor.toPlace}}</td>
             <td>{{inventor.ticketCost}}</td>
+            <td>
+              <button (click)="EditClick(inventor.inventoryId)" class="btn btn-success">Edit</button>
+              <button style="margin-left: 2%;" (click)="RemoveInventory(inventor.inventoryId)" class="btn btn-success">Delete</button>
+            </td>
           </tr>
         </table>
       </td>
@@ -95,7 +100,9 @@
                     </select>                          
                   </div>
                   <div style="height: 20px;">{{successMsg}}</div>
-                  <button type="submit" style="margin-left: 33%;" (click)="AddNewInventory()" class="btn btn-success">Add Inventory</button>                        
+                  <button *ngIf="Add" type="submit" style="margin-left: 33%;" (click)="AddNewInventory()" class="btn btn-success">Add Inventory</button>                        
+                  <button *ngIf="Edit" type="submit" style="margin-left: 42%;" (click)="UpdateInventory()" class="btn btn-success">Update</button>
+                    <button *ngIf="Cancel" type="submit" style="margin-left: 42%; margin-top: 2%;" (click)="CancelUpdate()" class="btn btn-success">Cancel</button>
                 </div>
           </div>
         </div>

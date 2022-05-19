@@ -16,6 +16,9 @@ export class InventoryComponent implements OnInit {
   inventories : Array<Inventory> = new Array<Inventory>()
   airLines : Array<AirLine> = new Array<AirLine>()
   successMsg : string = ''
+  public Add = true;
+  public Edit = false;
+  public Cancel = false;
   constructor(private _auth : AuthService) { }
 
   ngOnInit() {
@@ -57,6 +60,60 @@ export class InventoryComponent implements OnInit {
       this.inventoryModel = new Inventory()
       this.ShowAllInventories()
     })
+  }
+
+  EditClick(id : number){
+    this._auth.getInventory(id).subscribe(res => {
+      this.inventoryModel = res
+      this.ShowEdit()
+    },
+    err => {
+      console.log(err)
+    })
+
+  }
+
+  UpdateInventory(){
+    this._auth.updateInventory(this.inventoryModel).subscribe(res => {
+      this.inventoryModel = new Inventory
+      this.ShowAllInventories()
+      this.ShowEdit()
+    },
+    err => {
+      console.log(err)
+      this.inventoryModel = new Inventory
+      this.ShowAllInventories()
+      this.ShowEdit()
+    })
+  }
+
+  RemoveInventory(id : number){
+    this._auth.removeInventory(id).subscribe(res => {
+      this.ShowAllInventories()
+      this.ShowEdit()
+    },
+    err => {
+      console.log(err);
+      this.ShowAllInventories()
+      this.ShowEdit()
+    })
+  }
+
+  CancelUpdate(){
+    this.inventoryModel = new Inventory()
+    this.ShowAdd()
+  }
+
+  ShowAdd(){
+    this.Edit = false;
+    this.Cancel = false;
+    this.Add = true;
+  }
+
+  ShowEdit(){
+    this.Edit = true;
+    this.Cancel = true;
+    this.Add = false;
   }
 
   GetAllAirLines(){

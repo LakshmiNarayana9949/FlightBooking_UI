@@ -23,6 +23,9 @@ export class AuthService {
     private _allInventoriesUrl = "https://localhost:44349/api/Inventory/GetAllInventories";
     private _allInventoriesWithSearchUrl = "https://localhost:44349/api/Inventory/GetAllInventoriesWithSearch";
     private _oneInventoryUrl = "https://localhost:44349/api/Inventory/GetInventory";
+    private _updateInventoryUrl = "https://localhost:44349/api/Inventory/UpdateInventory"
+    private _removeInventoryUrl = "https://localhost:44349/api/Inventory/RemoveInventory"
+
     private _allAirLinesUrl = "https://localhost:44349/api/AirLine/GetAllAirlines";
     private _airLineUrl = "https://localhost:44349/api/AirLine/AddNewAirLine";
     private _updateAirLineUrl = "https://localhost:44349/api/AirLine/UpdateAirLine"
@@ -59,6 +62,8 @@ export class AuthService {
 
     logoutUser() {
         localStorage.removeItem('token')
+        localStorage.removeItem('inventoryId')
+        localStorage.clear()
         this._router.navigate(['/login'])
     }
 
@@ -124,5 +129,13 @@ export class AuthService {
 
     removeAirLine(id : number){
         return this.http.put<any>(this._removeAirLineUrl + "/" + id, '')
+    }
+
+    updateInventory(inventory : Inventory){
+        return this.http.put<any>(this._updateInventoryUrl,inventory);
+    }
+
+    removeInventory(id : number){
+        return this.http.put<any>(this._removeInventoryUrl + "/" + id, '')
     }
 }

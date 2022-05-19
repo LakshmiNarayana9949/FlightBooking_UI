@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate([('/airline')])
       }
       else{
+        debugger;
         if(localStorage.getItem('inventoryId') != null){
           this._router.navigate(['/ticketbooking'])
         }
