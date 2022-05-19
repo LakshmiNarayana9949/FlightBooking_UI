@@ -12,6 +12,9 @@ export class AirlineComponent implements OnInit {
   airLines : Array<AirLine> = new Array<AirLine>()
   airLineMsg : string = 'Hello Admin, here are your Air Lines'
   successMsg : string = ''
+  public Add = true;
+  public Edit = false;
+  public Cancel = false;
   constructor(private _auth : AuthService, private _route : Router) { }
 
   ngOnInit(): void {
@@ -32,7 +35,6 @@ export class AirlineComponent implements OnInit {
   }
 
   AddNewAirLine(){
-    debugger;
     this.airLine.createdBy = Number(localStorage.getItem('userid'))
     this.airLine.modifiedBy = Number(localStorage.getItem('userid'))
     this._auth.addNewAirLine(this.airLine).subscribe(res => {    
@@ -44,6 +46,56 @@ export class AirlineComponent implements OnInit {
       this.airLine = new AirLine()
       this.GetAllAirLines()
     })
+  }
+
+  EditClick(id : number){
+    this._auth.getAirLine(id).subscribe(res => {
+      this.airLine = res;
+    },
+    err => {
+      console.log(err);
+    })
+    this.ShowEdit()
+  }
+
+  CancelUpdate(){
+    this.airLine = new AirLine()
+    this.ShowAdd()
+  }
+
+  UpdateAirLine(){
+    this._auth.updateAirLine(this.airLine).subscribe(res => {
+      this.airLine = new AirLine()
+      this.GetAllAirLines()
+      this.ShowAdd()
+    },
+    err => {
+      console.log(err)
+      this.airLine = new AirLine()
+      this.GetAllAirLines()
+      this.ShowAdd()
+    })
+  }
+
+  RemoveAirLine(id : number){
+    this._auth.removeAirLine(id).subscribe(res => {
+      this.GetAllAirLines()
+    },
+    err => {
+      this.GetAllAirLines()
+    })
+  }  
+
+  ShowAdd(){
+    this.Edit = false;
+    this.Cancel = false;
+    this.Add = true;
+  }
+
+  ShowEdit(){
+    this.Edit = true;
+    this.Cancel = true;
+    this.Add = false;
   }
 
   // hasError(validator : string, controlname : string): boolean{

@@ -44,6 +44,8 @@ export class InventoryComponent implements OnInit {
     this.inventoryModel.airLineId = Number(this.inventoryModel.airLineId)
     this.inventoryModel.avlbleBClassCount = this.inventoryModel.bClassCount
     this.inventoryModel.avlbleNBClassCount = this.inventoryModel.nBClassCount
+    this.inventoryModel.createdBy = Number(localStorage.getItem('userid'))
+    this.inventoryModel.modifiedBy = Number(localStorage.getItem('userid'))
 
     this._auth.addNewInventory(this.inventoryModel).subscribe(res => {
       this.inventoryModel = new Inventory()

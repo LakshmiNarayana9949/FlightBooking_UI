@@ -9,11 +9,16 @@
             <td>AirLine Name</td>
             <td>Address</td>
             <td>Contact Number</td>
+            <td>Actions</td>
           </tr>
           <tr *ngFor="let airLine of airLines" style="height: 40px;text-align: center;border: 1px;">
             <td>{{airLine.name}}</td>
             <td>{{airLine.address}}</td>
             <td>{{airLine.contactNumber}}</td>
+            <td>
+              <button (click)="EditClick(airLine.airlineId)" class="btn btn-success">Edit</button>
+              <button style="margin-left: 2%;" (click)="RemoveAirLine(airLine.airlineId)" class="btn btn-success">Delete</button>
+            </td>
           </tr>
         </table>
       </td>
@@ -49,7 +54,9 @@
                         Phone number must be a number
                       </div> -->
                     </div>                      
-                    <button type="submit" style="margin-left: 42%;" (click)="AddNewAirLine()" class="btn btn-success">Add</button>
+                    <button *ngIf="Add" type="submit" style="margin-left: 42%;" (click)="AddNewAirLine()" class="btn btn-success">Add</button>
+                    <button *ngIf="Edit" type="submit" style="margin-left: 42%;" (click)="UpdateAirLine()" class="btn btn-success">Update</button>
+                    <button *ngIf="Cancel" type="submit" style="margin-left: 42%; margin-top: 2%;" (click)="CancelUpdate()" class="btn btn-success">Cancel</button>
                 </div>
               </div>
             </div>

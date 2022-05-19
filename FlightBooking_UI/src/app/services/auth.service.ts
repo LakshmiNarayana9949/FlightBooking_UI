@@ -25,6 +25,9 @@ export class AuthService {
     private _oneInventoryUrl = "https://localhost:44349/api/Inventory/GetInventory";
     private _allAirLinesUrl = "https://localhost:44349/api/AirLine/GetAllAirlines";
     private _airLineUrl = "https://localhost:44349/api/AirLine/AddNewAirLine";
+    private _updateAirLineUrl = "https://localhost:44349/api/AirLine/UpdateAirLine"
+    private _removeAirLineUrl = "https://localhost:44349/api/AirLine/RemoveAirLine"
+    private _getAirLineUrl = "https://localhost:44349/api/AirLine/GetAirLine"
 
     private _bookTticketUrl = "https://localhost:44340/api/TicketBooking/BookTicket";
     private _allTicketsUrl = "https://localhost:44340/api/TicketBooking/GetAllTickets";
@@ -109,5 +112,17 @@ export class AuthService {
 
     getTicketInfo(ticketId : string){
         return this.http.get<any>(this._ticketInfoURL + "/" + ticketId)
+    }
+
+    updateAirLine(airLine : AirLine){
+        return this.http.put<any>(this._updateAirLineUrl,airLine)
+    }
+
+    getAirLine(id : number){
+        return this.http.get<any>(this._getAirLineUrl + "/" + id)
+    }
+
+    removeAirLine(id : number){
+        return this.http.put<any>(this._removeAirLineUrl + "/" + id, '')
     }
 }
