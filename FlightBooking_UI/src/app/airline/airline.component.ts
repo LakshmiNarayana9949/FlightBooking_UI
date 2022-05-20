@@ -82,6 +82,7 @@ export class AirlineComponent implements OnInit {
       this.GetAllAirLines()
     },
     err => {
+      alert(err.error.text);
       this.GetAllAirLines()
     })
   }  
